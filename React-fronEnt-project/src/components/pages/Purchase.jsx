@@ -5,7 +5,7 @@ export default function Purchase({props}) {
   return (
     <div className='col'>
       <div className='card shadow-sm'>
-        <img src={props._id.thumbnail} alt={props._id.title} />
+        <img src={props._id.thumbnail} alt={props._id.title} style={{ filter: 'brightness(1.1)', mixBlendMode: 'multiply', objectFit: 'cover' }}/>
         <div className='card-body text-center'>
           <h2>{props._id.title}</h2>
           <p className='card-text text-center'>{props._id.des}.</p>

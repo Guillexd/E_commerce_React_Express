@@ -12,8 +12,6 @@ export async function fetchBody(url, method, body) {
     return data;
   } catch (err) {
     return
-  } finally {
-    console.log('Succesfully');
   }
 }
 

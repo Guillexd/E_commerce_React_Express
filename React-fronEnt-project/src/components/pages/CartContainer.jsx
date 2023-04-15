@@ -1,8 +1,12 @@
 import { useCustomContext } from '../../utils/context/ContextTasks';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Cart from './Cart';
+import useVerifyLogin from '../../utils/customHooks/useVerifyLogin';
 
 export default function CartContainer(){
+
+  //this is to very if you're login
+  useVerifyLogin();
 
   //Se usa el contexto y se importa la función clear; además de las variables carrito, cantidad y precioFinal 
   const { cart, quantity, finalPrice, clear } = useCustomContext();

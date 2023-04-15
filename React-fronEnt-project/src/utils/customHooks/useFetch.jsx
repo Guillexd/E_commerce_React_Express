@@ -14,7 +14,6 @@ export function useFetch(url, category = null, filters = null){
       setLoading(false)
       setData(response)
     })
-    .finally(console.log('Renderizado'));
   }, [category, filters])
 
   return { data, loading };

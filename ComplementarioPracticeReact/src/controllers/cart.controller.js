@@ -1,3 +1,5 @@
+import obj from "../config.js";
+import jwt from "jsonwebtoken";
 import { getCarts, getCartById, addCart, addProductToCart, emptyCartById, deleteProductById } from "../services/cart.services.js";
 
 export async function getAllCarts(req, res) {
@@ -22,8 +24,9 @@ export async function getOneCartById(req, res){
 //this is for ReactJsApp
 export async function addOneCart(req, res) {
   const { name, cellphone, products, comments, conditions, finalPrice } = req.body;
-  // const { user } = req.cookies || null;
+  const user = jwt.verify(req.cookies.tokenJwt, obj.secret_key_jwt);
   const newCartObj = {
+    user: user.user.email,
     name,
     cellphone,
     products,

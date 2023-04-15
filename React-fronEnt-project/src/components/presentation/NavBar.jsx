@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 import Guille from '../../utils/images/guille.png'
+import { useCustomContext } from '../../utils/context/ContextTasks';
 
 export default function NavBar() {
+
+  const { login } = useCustomContext();
+
   return (
     <>
+      { login &&
       <header className='bg-secondary bg-opacity-75 w-100'>
         <nav className='navbar navbar-expand-lg w-100'>
           <div className='container-fluid justify-content-between w-100'>
             <div className='me-lg-5'>
-              <Link to={'/'}>
+              <Link to={'/products'}>
                 <img src={Guille} alt='Guille Market' width='150' />
               </Link>
             </div>
@@ -32,6 +37,7 @@ export default function NavBar() {
           </div>
         </nav>
       </header>
+      }
 
       {/* <div className='d-flex flex-column flex-shrink-0 p-3 text-bg-dark position-fixed' style={{width: '280px'}}>
         <a href='/' className='d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none'>

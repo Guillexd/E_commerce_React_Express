@@ -8,12 +8,13 @@ import {
   emptyOneCartById,
   deleteOneProductById
 } from "../controllers/cart.controller.js";
+import { jwtValid } from "../middleware/jwt.middleware.js";
 
 const router = Router();
 
 router.get("/", getAllCarts);
 
-router.get("/:idCart", getOneCartById);
+router.get("/:idCart", jwtValid, getOneCartById);
 
 router.post("/add-cart", addOneCart);
 

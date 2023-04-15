@@ -7,7 +7,7 @@ const cartSchema = mongoose.Schema({
   },
   user:{
     type: String,
-    default: "usuario@gmail.com"
+    required: true
   },
   name:{
     type: String,

@@ -93,7 +93,13 @@ function ContextTasks({ children }) {
   //hook to control login
   const [login, setLogin] = useState(false);
   useEffect(()=>{
-    if(!login) navigate('/')
+    fetch('/api/user/validate', {
+      method: 'POST'
+    })
+    .then(response => response.json())
+    .then(response => setLogin(response.status === 1))
+    console.log(login);
+    // if(!login) navigate('/');
   },[login])
 
   return (
